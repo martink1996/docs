@@ -322,6 +322,7 @@ Look down below for script examples based on the following metering devices:
 - [SDM230](#sdm230-modbus) (MODBus)
 - [Janitza B23](#janitza-b23-modbus) (MODBus)
 - [Hager EHZ363](#hager-ehz363-sml-with-daily-values) (SML, with daily values)
+- [Itron ACE3000 Typ 260](#itron-ace3000-typ-260-obis) (OBIS)
 - [Iskra MT 174](#iskra-mt-174-obis) (OBIS)
 - [Iskra MT 175](#iskra-mt-175-sml) (SML)
 - [Iskra MT 681](#iskra-mt-681-sml) (SML)
@@ -899,6 +900,23 @@ Tageseinspeisung: {m} %po_d% kWh
 ```
 
 ------------------------------------------------------------------------------
+ 
+### Itron ACE3000 Typ 260 (OBIS)
+
+
+The script:
+```
+>D
+>B
+=>sensor53 r
+>M 1
++1,3,o,0,300,Strom,1,100,2F3F210D0A
+1,2.8.0(@1,Total Delivered,KWh,Total_out,1
+1,1.8.0(@1,Total Consumed,KWh,Total_in,1
+1,C.1(@#),Meter Number,,Meter_number,2
+#
+```
+------------------------------------------------------------------------------
 
 ### Iskra MT 174 (OBIS)
 
@@ -914,9 +932,8 @@ The script:
 1,1-0:0.0.0*255(@#),Meter Number,,Meter_number,0
 #
 ```
-
 ------------------------------------------------------------------------------
-    
+       
 ### Iskra MT 175 (SML)
 
 This meter needs a PIN to unlock the current power usage.
